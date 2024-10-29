@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "fd433ebcfe15544f2271b878272be46c"
+name = "test-af-002"
+application_url = "https://protect-pixel-soa-infinite.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "itg-app.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = ""
+
+[auth]
+redirect_urls = [
+  "https://protect-pixel-soa-infinite.trycloudflare.com/auth/callback",
+  "https://protect-pixel-soa-infinite.trycloudflare.com/auth/shopify/callback",
+  "https://protect-pixel-soa-infinite.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+[pos]
+embedded = false

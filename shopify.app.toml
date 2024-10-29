@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "04622044e98a6039e60d57d63715bc54"
+name = "itg-m3"
+application_url = "https://time-focus-aruba-nylon.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "checkoutitgextension.myshopify.com"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_fulfillments,read_inventory,read_online_store_navigation,read_orders,read_product_listings,read_products,read_shipping,read_shopify_payments_payouts,unauthenticated_read_checkouts,unauthenticated_read_content,unauthenticated_read_customer_tags,unauthenticated_read_customers,unauthenticated_read_product_inventory,unauthenticated_read_product_listings,unauthenticated_read_selling_plans,unauthenticated_write_customers,write_assigned_fulfillment_orders,write_content,write_customers,write_discounts,write_inventory,write_legal_policies,write_online_store_navigation,write_orders,write_price_rules,write_products,write_shipping"
+
+[auth]
+redirect_urls = [
+  "https://time-focus-aruba-nylon.trycloudflare.com/auth/callback",
+  "https://time-focus-aruba-nylon.trycloudflare.com/auth/shopify/callback",
+  "https://time-focus-aruba-nylon.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+[pos]
+embedded = false

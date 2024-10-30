@@ -1,4 +1,4 @@
-const { shopify } = require("../../shopify.js");
+const { shopify } = require("../../../shopify.js");
 // Response handlers
 const { sendResponse } = require("../utils/sendResponse.js");
 const { ErrorMessage } = require("../constants/messages.js");

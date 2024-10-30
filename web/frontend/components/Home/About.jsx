@@ -10,7 +10,7 @@ function About() {
 
   const [shoData, setShopData] = useState({});
   const shopDetails = () => {
-    const config = {
+    const config = { 
       method: "GET",
       headers: { "Content-Type": "application/json" },
     }
@@ -33,7 +33,7 @@ function About() {
 
   return (
     <div className='flex flex-col gap-[10px] justify-center items-center h-[80vh]'>
-      <h1 className='text-[35px]'>Welcome to the shopify new app !</h1>
+      <h1 className='text-[35px]'>Welcome to the shopify new app ! version 1</h1>
       <p>{shoData?.shop}</p>
     </div>
   )

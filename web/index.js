@@ -1,14 +1,17 @@
+require("dotenv").config();
 const { join } = require("path");
 const { readFileSync } = require("fs");
 const express = require("express");
 const serveStatic = require("serve-static");
-const { dbConnection } = require("./server/config/db.js");
+const { dbConnection } = require(`./server/${process.env.VERSION}/config/db.js`);
+// const { dbConnection } = require("./v2/server/config/db.js");
 const { shopify } = require("./shopify.js");
 const PrivacyWebhookHandlers = require("./privacy.js");
-require("dotenv").config();
-const routes = require("./server/routes/index.js");
+const routes = require(`./server/${process.env.VERSION}/routes/index.js`);
+// const routes = require("./v2/server/routes/index.js");
 const bodyParser = require("body-parser");
-const { authenticateUser } = require("./server/middelwares/auth.middleware.js");
+const { authenticateUser } = require(`./server/${process.env.VERSION}/middelwares/auth.middleware.js`);
+// const { authenticateUser } = require("./v2/server/middelwares/auth.middleware.js");
 // require('./server/utils/cron.js');
 const http = require('http');
 // const { setupSocket } = require('./server/utils/socket.js');
@@ -26,8 +29,10 @@ const STATIC_PATH =
     process.env.NODE_ENV === "production"
         // eslint-disable-next-line no-undef
         ? `${process.cwd()}/frontend/dist`
+        // ? `${process.cwd()}/v2/frontend/dist`
         // eslint-disable-next-line no-undef
-        : `${process.cwd()}/frontend/`;
+        : `${process.cwd()}/frontend`;
+// : `${process.cwd()}/v2/frontend/`;
 
 const app = express();
 
@@ -79,6 +84,7 @@ app.use(shopify.cspHeaders());
 
 // Serve static files from the specified path without generating an index.
 app.use(serveStatic(STATIC_PATH, { index: false }));
+console.log(STATIC_PATH, '-------------STATIC_PATH');
 
 // eslint-disable-next-line no-unused-vars
 app.use("/*", shopify.ensureInstalledOnShop(), async (req, res, next) => {
